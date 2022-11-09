@@ -10,7 +10,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $types = Type::all();
-        return view('type.index', compact('types'));
-    }
+    $types = Type::all();
+    return view('type.index', compact('types'));
+}
 }
