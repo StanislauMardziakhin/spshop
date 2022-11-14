@@ -24,10 +24,6 @@ return new class extends Migration
             $table->integer('count');
             $table->boolean('is_published')->default(true);
 
-            $table->foreignId('type_id')->nullable()->index()->constrained('types');
-
-
-
             $table->timestamps();
         });
     }

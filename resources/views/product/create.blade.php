@@ -23,15 +23,28 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{route('product.store')}}" method="post">
+                <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
-                        <input type="text" name="title" class="form-control" placeholder="Товар">
+                        <input type="text" name="title" class="form-control" placeholder="Название">
                     </div>
                     <div class="form-group">
                         <input type="text" name="description" class="form-control" placeholder="Описание">
                     </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input name="preview_image" type="file" class="custom-file-input" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Изображение</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Загрузить</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <textarea name="content" class="form-control" cols="30" rows="10" placeholder="Расширенное описание"></textarea>
 
@@ -42,11 +55,28 @@
                     <div class="form-group">
                         <input type="text" name="count" class="form-control" placeholder="Количество в наличии">
                     </div>
-                    <div class="form-group">
+            <div>
+                    <select name="types[]" class="types" multiple="multiple" data-placeholder="Особенности вида" style="width: 100%;">
+                        @foreach($types as $type)
+                        <option value="{{$type->id}}">{{$type->title}}</option>
+                        @endforeach
+                    </select>
+            </div>
+
+                    <div class="form-group mt-2">
                         <input type="submit" class="btn btn-outline-primary" value="Добавить">
                     </div>
                 </form>
-
+                @if($errors->any())
+                    <div class="alert alert-danger" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        @foreach($errors->all() as $error)
+                            {{ $error }}<br/>
+                        @endforeach
+                    </div>
+                @endif
             </div>
         </div><!-- /.container-fluid -->
     </section>

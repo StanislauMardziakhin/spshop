@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Особенность</h1>
+                    <h1 class="m-0">Товар</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -27,9 +27,9 @@
                     <div class="card">
                         <div class="card-header d-flex">
                             <div class="mr-auto">
-                                <a href="{{route('type.edit', $type->id)}}" class="btn btn-outline-primary">Редактировать особенность</a>
+                                <a href="{{route('product.edit', $product->id)}}" class="btn btn-outline-primary">Редактировать товар</a>
                                 </div>
-                                <form action="{{route('type.delete', $type->id)}}" method="post">
+                                <form action="{{route('product.delete', $product->id)}}" method="post">
                                     @csrf
                                     @method('delete')
                                     <input type="submit" class="btn btn-outline-danger" value="Удалить">
@@ -40,11 +40,11 @@
                                     <tbody>
                                     <tr>
                                         <td>ID</td>
-                                        <td>{{$type->id}}</td>
+                                        <td>{{$product->id}}</td>
                                     </tr>
                                         <tr>
-                                            <td>Особенность</td>
-                                            <td>{{$type->title}}</td>
+                                            <td>Товар</td>
+                                            <td>{{$product->title}}</td>
                                         </tr>
                                 </table>
                             </div>

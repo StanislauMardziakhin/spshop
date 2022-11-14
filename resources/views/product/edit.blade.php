@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Изменить особенность</h1>
+                    <h1 class="m-0">Изменить позицию</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -23,11 +23,11 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{route('type.update', $type)}}" method="post">
+                <form action="{{route('product.update', $product)}}" method="post">
                     @csrf
                     @method('patch')
                     <div class="form-group">
-                        <input type="text" name="title" value="{{$type->title}}" class="form-control" placeholder="Особенность">
+                        <input type="text" name="title" value="{{$product->title}}" class="form-control" placeholder="Товар">
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-outline-primary" value="Изменить">
